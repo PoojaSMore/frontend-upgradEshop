@@ -1,14 +1,9 @@
 import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
+import { AppBar, Toolbar, Typography, InputBase, Button, Link } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
 //import { Link } from 'react-router-dom';
-import Link from '@mui/material/Link';
 
 // functions for the search component of the navbar
 const Search = styled('div')(({ theme }) => ({
@@ -56,20 +51,27 @@ function NavigationBar() {
     return ( <>
         <AppBar position="static">
             <Toolbar>
+                {/* APP's LOGO - Shopping cart icon with App's Name */}
                 <ShoppingCartIcon sx={{mr: 1}}></ShoppingCartIcon>
                 <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
                     upGrad E-Shop
                 </Typography>
+
+                {/* Search Bar */}
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />
                     </SearchIconWrapper>
                     <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }}/>
                 </Search>
-                <Link href="#" color="inherit" sx={{ mx: 2 }}>Login</Link>
-                <Link href="#" color="inherit" sx={{ mx: 2 }}>Sign Up</Link>
-                <Link href="#" color="inherit" sx={{ mx: 2 }}>Home</Link>
-                <Link href="#" color="inherit" sx={{ mx: 2 }}>Add Product</Link>
+
+                {/* Navigation Links */}
+                <Link href="login" color="inherit" sx={{ mx: 2 }}>Login</Link>
+                <Link href="signup" color="inherit" sx={{ mx: 2 }}>Sign Up</Link>
+                <Link href="" color="inherit" sx={{ mx: 2 }}>Home</Link>
+                <Link href="addproducts" color="inherit" sx={{ mx: 2 }}>Add Product</Link>
+
+                {/* LOGOUT button */}
                 <Button variant="contained" color="secondary">LOGOUT</Button>
             </Toolbar>
         </AppBar>

@@ -4,10 +4,22 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import NavigationBar from './components/NavigationBar';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import SignUpPage from './components/SignUp';
+import SignInPage from './components/SignIn';
+import AddProductsPage from './components/AddProducts';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavigationBar />
+    <BrowserRouter>
+        <section>
+          <Routes>
+            <Route path='/' element={ <NavigationBar /> }></Route>
+            <Route path='/login' element={ <SignInPage /> }></Route>
+            <Route path='/signup' element={ <SignUpPage /> }></Route>
+            <Route path='/addproducts' element={ <AddProductsPage /> }></Route>
+          </Routes>
+        </section>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
