@@ -1,40 +1,24 @@
-import { Button, Container, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Button, Container, FormControl, TextField, Typography } from '@mui/material';
 import React from 'react';
 
 const style={display: 'flex', justifyContent: 'center', justifyItems: 'center'}
 const formControlStyle = { margin: 1.5, width: 300, display: 'block'}; // style for the inputs
 
-// main AddProducts component
-const AddProductsPage = () => {
-    const [category, setCategory] = React.useState('');
-
-    const handleChange = (event) => {
-        setCategory(event.target.value);
-    };
-
+// main modify products component
+const ModifyProductsPage = () => {
     return ( <>
         <Container sx={{display: 'flex',justifyContent: 'center', flexDirection: 'column'}}>
-        <div >          {/* Add product heading */}
-            <Typography variant="h5" sx={{p: 2}}>Add Product</Typography>
+        <div >
+            <Typography variant="h5" sx={{p: 2}}>Modify Product</Typography>
         </div>
         <form>                 {/* Form inputs */}
                     <FormControl id='pname' sx={formControlStyle}>
                         <TextField label="Name *" variant="outlined" size="small" 
                         type='text' name='pname' fullWidth></TextField>
                     </FormControl>
-                    <FormControl id='category' sx={{minWidth: 300, m: 1.5}} size="small" >
-                        {/* Category select dropdown */}
-                        <InputLabel id="cateogry-select">Category *</InputLabel>
-                        <Select labelId="category-select" id="category-select" value={category}
-                            label="Category *" onChange={handleChange} >
-                            <MenuItem value="">
-                            <em>Select...</em>
-                            </MenuItem>
-                            <MenuItem value="furniture">Furniture</MenuItem>
-                            <MenuItem value="apparel">Apparel</MenuItem>
-                            <MenuItem value="electronics">Electronics</MenuItem>
-                            <MenuItem value="personalcare">Personal Care</MenuItem>
-                        </Select>
+                    <FormControl id='category' sx={formControlStyle}>
+                        <TextField label="Category *" variant="outlined" size="small" 
+                        type='text' name='category' fullWidth></TextField>
                     </FormControl>
                     <FormControl id='manufacturer' sx={formControlStyle}>
                         <TextField label="Manufacturer *" variant="outlined" size="small" 
@@ -57,11 +41,11 @@ const AddProductsPage = () => {
                         type='text' name='pdesc' fullWidth></TextField>
                     </FormControl>
 
-                        {/* Button to save the new Product */}
-                    <Button sx={formControlStyle} size="small" variant="contained" color='primary'>ADD PRODUCT</Button>
+                        {/* Button to save the new changes to the product */}
+                    <Button sx={formControlStyle} size="small" variant="contained" color='primary'>MODIFY PRODUCT</Button>
                 </form>
         </Container>
     </> );
 }
 
-export default AddProductsPage;
+export default ModifyProductsPage;
